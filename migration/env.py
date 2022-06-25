@@ -1,7 +1,6 @@
 from __future__ import with_statement
 
-import os
-
+from app.models.base_model import Base
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 from logging.config import fileConfig
@@ -17,9 +16,7 @@ fileConfig(config.config_file_name)
 # add your model's MetaData object here
 # for 'autogenerate' support
 # from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
-target_metadata = None
-
+target_metadata = Base.metadata
 # from app.db.base import Base  # noqa
 
 # target_metadata = Base.metadata
