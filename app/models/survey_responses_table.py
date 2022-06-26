@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, ARRAY
 
 from app.models.base_model import BaseModel, ModifiedMixin
 
@@ -13,4 +13,4 @@ class SurveyResponses(BaseModel, ModifiedMixin):
     skill = Column(String(150))
     current_competence_area = Column(String(256))
     linkedin_url = Column(String(256))
-    certificates = Column(String(200))
+    certificates = Column(ARRAY(String))

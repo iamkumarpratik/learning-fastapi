@@ -18,9 +18,8 @@ class BaseModel(Base):
             values = json.loads(values.json())
         for key, value in values.items():
             if (hasattr(self, key) and ((isinstance(value, str) and value)
-                                        or (isinstance(value, (bool, int, float))))):
+                                        or (isinstance(value, (bool, int, float, list))))):
                 setattr(self, key, value)
-
 
 class AuditMixin(Base):
     __abstract__ = True

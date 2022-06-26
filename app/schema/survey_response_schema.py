@@ -8,7 +8,7 @@ class SurveyResponseSchema(BaseModel):
     skill: str | None = None
     current_competence_area: str | None = None
     linkedin_url: str | None = None
-    certificates: str | None = None
+    certificates: list[str] | None = None
 
     class Config:
         orm_mode = True
