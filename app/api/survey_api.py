@@ -5,7 +5,7 @@ router = APIRouter()
 
 
 @router.post('/survey/new', response_model=SurveyResponseSchema)
-def create_survey_response(*, survey: SurveyResponseSchema):
+def create_survey_response(survey: SurveyResponseSchema):
 
     try:
         survey_query = SurveyResponseQueries()
