@@ -4,7 +4,7 @@ from sqlalchemy import Column, DateTime
 from sqlalchemy import String
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.ext.declarative import declarative_base
-
+import json
 Base = declarative_base()
 
 
@@ -14,6 +14,8 @@ class BaseModel(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4)
 
     def set_attributes(self, values):
+        if not isinstance(values, dict):
+            values = json.loads(values.json())
         for key, value in values.items():
             if (hasattr(self, key) and ((isinstance(value, str) and value)
                                         or (isinstance(value, (bool, int, float))))):
